@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    select {
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    iframe {
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Map Selector</h1>
+  <p>Choose a map from the dropdown menu below to explore.</p>
+
+  <!-- Dropdown menu to select the map -->
+  <select id="mapSelector" onchange="switchMap()" style="margin-bottom: 20px;">
+    <option value="https://adrianaarellano.github.io/subindic_policy_cur_aim/">Policy Curriculum Aim</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_cur_diff_pro/">Policy Curriculum Common</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_cur_formal/">Policy Curriculum Formal</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_cur_topic/">Policy Curriculum Topic</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_ped/">Policy Pedagogy Guidelines</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_ped_objective/">Policy Pedagogy Objective</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_ethos/">Policy Ethos Guidelines</option>
+    <option value="https://adrianaarellano.github.io/subindic_track_age_selection/">Track Age Selection</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_train_inservice/">Policy Training In-Service</option>
+    <option value="https://adrianaarellano.github.io/subindic_train_policy_madatory/">Policy Training Mandatory</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_auto_assessment/">Policy Autonomy Assessment</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_auto_nc_epsm/">Policy Autonomy Curricula</option>
+    <option value="https://adrianaarellano.github.io/subindic_policy_compuls_years/">Policy Compulsory Years</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_cur_outside/">Practice Curriculum Outside Activities</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_ped_vote/">Practice Pedagogy Student Vote</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_ped_active_par/">Practice Pedagogy Active Participation</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_ped_open_dis/">Practice Pedagogy Open Discussion</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_ped_opinion_par/">Practice Pedagogy Opinion on Participation</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_ped_open_class/">Practice Pedagogy Open Classroom</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_teacher/">Practice Ethos Teacher Participation</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_ethos_school/">Practice Ethos Student Involvement</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_auto_school/">Practice Autonomy with CE activities</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_auto_teacher/">Practice Autonomy Official Curricula</option>
+    <option value="https://adrianaarellano.github.io/subindic_practice_track_group/">Practice Track Grouping</option>
+  </select>
+
+  <!-- The iframe container -->
+  <iframe id="mapFrame" src="https://adrianaarellano.github.io/subindic_policy_cur_aim/"
+          width="80%"
+          height="900px"
+          scrolling="no"
+          style="border:none;">
+  </iframe>
+
+  <script>
+    // Function to switch the iframe source based on dropdown selection
+    function switchMap() {
+      var mapFrame = document.getElementById("mapFrame");
+      var mapSelector = document.getElementById("mapSelector").value;
+
+      // Set the iframe source to the selected URL
+      mapFrame.src = mapSelector;
+    }
+  </script>
+</body>
+</html>
