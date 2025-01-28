@@ -17,6 +17,9 @@
     }
     iframe {
       border: none;
+      width: 80%;
+      height: 600px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -25,24 +28,22 @@
   <p>Choose an indicator category and then select a specific indicator to explore the interactive map.</p>
 
   <!-- Dropdown for category (Policy or Practice) -->
-  <select id="categorySelector" onchange="updateIndicatorDropdown()" style="margin-bottom: 20px;">
+  <label for="categorySelector">Select Category:</label>
+  <select id="categorySelector" onchange="updateIndicatorDropdown()">
     <option value="" disabled selected>Select Category</option>
     <option value="policy">Policy</option>
     <option value="practice">Practice</option>
   </select>
 
   <!-- Dropdown for specific indicators -->
-  <select id="indicatorSelector" onchange="switchMap()" style="margin-bottom: 20px;" disabled>
+  <label for="indicatorSelector">Select Indicator:</label>
+  <select id="indicatorSelector" onchange="switchMap()" disabled>
     <option value="" disabled selected>Select Indicator</option>
   </select>
 
   <!-- The iframe container -->
-  <iframe id="mapFrame" 
-          src="" 
-          width="80%" 
-          height="900px" 
-          scrolling="no" 
-          style="border:none;">
+  <iframe id="mapFrame" src="about:blank">
+    Your browser does not support iframes.
   </iframe>
 
   <script>
@@ -78,7 +79,7 @@
       }
     };
 
-    // Update the Indicator dropdown based on selected category
+    // Function to update Indicator dropdown based on category
     function updateIndicatorDropdown() {
       const category = document.getElementById("categorySelector").value;
       const indicatorSelector = document.getElementById("indicatorSelector");
@@ -100,13 +101,13 @@
       }
     }
 
-    // Switch the iframe source based on selected indicator
+    // Function to switch the iframe source
     function switchMap() {
-      const mapFrame = document.getElementById("mapFrame");
       const selectedURL = document.getElementById("indicatorSelector").value;
+      const mapFrame = document.getElementById("mapFrame");
 
-      // Set the iframe source to the selected URL
-      mapFrame.src = selectedURL;
+      // Update the iframe source
+      mapFrame.src = selectedURL || "about:blank";
     }
   </script>
 </body>
